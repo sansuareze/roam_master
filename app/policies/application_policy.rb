@@ -27,8 +27,7 @@ class ApplicationPolicy
   def update?
     user.admin? || !post.published?
   end
-  end
-
+ 
   def edit?
     update?
   end
