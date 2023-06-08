@@ -5,28 +5,31 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    authorize @trip
   end
 
   def new
     @trip = Trip.new
-
+    authorize @trip
   end
 
   def create
     @trip = Trip.new(trip_params)
+    @trip.user = current_user
     @trip.save
-    # No need for app/views/restaurants/create.html.erb
+    authorize @trip
     redirect_to trip_path(@trip)
   end
 
   def edit
     @trip = Trip.find(params[:id])
-  end
+  end  
 
 
   def update
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)
+    authorize @trip
   end
 
   def destroy
@@ -38,7 +41,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:cost, :start_date, :end_date, :location, :name)
+    params.require(:trip).permit(:start_date, :end_date, :location, :name, :budget)
   end
 
 end
