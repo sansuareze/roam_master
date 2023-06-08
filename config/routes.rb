@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+
+  resources :trips do
+    resources :stays, only: [:index, :create]
+  end
   resources :activities, only: [:index, :show]
-  resources :trips
-  resources :activities
   resources :budgets
   resources :reviews
-  resources :stays
   get '/hotel_search', to: 'stays#hotel_search', as: 'hotel_search'
   end
 

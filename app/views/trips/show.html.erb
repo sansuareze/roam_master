@@ -1,8 +1,7 @@
-<%= simple_form_for(@trip) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-   <%= f.input :budget %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit %>
-<% end %>
+<h1><%=@trip.name%></h1>
+<h3>Hotel Options:</h3>
+<ul>
+  <% @trip.stays.each do |stay| %>
+    <li><%= stay.name %></li>
+  <% end %>
+</ul>
