@@ -1,7 +1,20 @@
 class StaysController < ApplicationController
+  protect_from_forgery with: :exception
+
   def index
-    @stays = Stay.all
+    @trip = Trip.find(params[:trip_id])
+    @stays = policy_scope(Stay)
     # render view to display @stays
+  end
+
+  def create
+    @trip = Trip.find(params[:trip_id])
+    @stay = Stay.new(stay_params)
+    @stay.trip = @trip
+    authorize @stay
+    if @stay.save
+      redirect_to trip_path(@trip), notice: "Hotel added to your trip"
+    end
   end
 
   def show
@@ -34,6 +47,6 @@ class StaysController < ApplicationController
   private
 
   def stay_params
-    params.require(:stay).permit(:name, :type, :cost, :address, :trip_id)
+    params.permit(:name)
   end
 end
