@@ -27,7 +27,6 @@ class ApplicationPolicy
   def update?
     user.admin? || !post.published?
   end
-  end
 
   def edit?
     update?
@@ -44,7 +43,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
+      scope.all
     end
 
     private
