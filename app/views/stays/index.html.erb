@@ -1,0 +1,16 @@
+<div data-controller="stays-form">
+  <%= form_with url: stays_path, method: :get, html: {class:
+    "mb-4", data: {action: "submit->stays-form#searchLocation"}} do |f| %>
+    <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: "Look for a hotel",
+                     value: params[:query],
+                     data: {stays_form_target: "input"} %>
+                     <% end %>
+
+  <div>
+    <ul class="hotellist" data-stays-form-target="list">
+
+    </ul>
+  </div>
+</div>
