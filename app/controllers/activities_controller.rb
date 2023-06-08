@@ -11,10 +11,31 @@ class ActivitiesController < ApplicationController
     @reviews = @activity.reviews
   end
 
+  def add_to_trip
+    @activity = Activity.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @trip.activities << @activity
+    redirect_to activity_path(@activity)
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+    if @activity.update(activity_params)
+      redirect_to activity_path(@activity)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to activities_path
+  end
 
   private
 
   def activity_params
-    params.require(:activity).permit(:name, :cost, :date, :description, :type, :trip_id)
+    params.require(:activity).permit(:input.value)
   end
 end

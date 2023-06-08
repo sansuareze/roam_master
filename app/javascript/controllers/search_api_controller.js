@@ -79,19 +79,19 @@ export default class extends Controller {
        // Get the activityList element
       activitiesOptions.forEach(activity => {
         const list = document.querySelector(".activity-list")
-        list.insertAdjacentHTML("beforeend", `<div class="col-10 offset-1 mt-5 card bg-white p-5"><h4>${activity.name}</h4>
+        list.insertAdjacentHTML("beforeend", `<div class="col-10 offset-1 mt-5 card bg-white p-4 animate__animated animate__backInUp"><h3><b>${activity.name}</b></h3>
         <div class="row">
           <div class="col-md-4">
            <img class="img-fluid" src="${activity.pictures[0]}" />
           </div>
           <div class="col-md-8">
            <p>${activity.description}<p>
-           ${activity.price ? `<h5><b>€ ${activity.price.amount}</b></h5>` : ''}
-           <a class="btn btn-primary"> Add to trip </a> </div>
+           ${activity.price ? `<h4><b>€ ${activity.price.amount}</b></h4>` : ''}
+           <a class="btn btn-primary" style="float:right"> Add to trip </a> </div>
           </div>
           </div>
         </div>`)
-      });
+      });z
       console.log(this.activityListTarget)
     }
       )

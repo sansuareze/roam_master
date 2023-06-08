@@ -6,13 +6,14 @@
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              style: "background:white",
+              style: "background:white;height: 61px; border-radius: 7px;",
               placeholder: "Type your activities of interest here",
               data: { search_api_target: "input" }
           %>
         <%= submit_tag "Find activities", name: "", class: "btn btn-primary" %>
       <% end %>
-      <div class="activity-list row mb-5" data-search-api-target="activityList"></div>
-    </div>
+      </div>
   </div>
+      <div class="activity-list row mb-5" data-search-api-target="activityList"></div>
+
 </div>
