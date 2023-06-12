@@ -23,7 +23,7 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
-  end  
+  end
 
 
   def update
@@ -41,7 +41,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:start_date, :end_date, :location, :name, :budget)
+    params.require(:trip).permit(:start_date, :end_date, :location, :name, :budget, :photo)
   end
 
 end

@@ -1,6 +1,7 @@
 class StaysController < ApplicationController
+
   def index
-    @stays = Stay.all
+    @stays = policy_scope(Stay)
     # render view to display @stays
   end
 
@@ -34,6 +35,6 @@ class StaysController < ApplicationController
   private
 
   def stay_params
-    params.require(:stay).permit(:name, :type, :cost, :address, :trip_id)
+    params.require(:stay).permit(:name, :type, :cost, :address, :trip_id, :photo)
   end
 end
