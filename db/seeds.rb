@@ -39,3 +39,19 @@ trip3.save
 
 stay3 = Stay.create(trip: trip3, category: "Hotel", name: "Hawaiing shining", address: "Main Road,31, n203349 Hawaii", cost: "500$")
 activity3 = Activity.create(trip: trip3, name: "Coconut tasting", cost: "250$", description: "Taste the best cocounts of Hawaii and see how the hawaainins process them to milk", category: "explore")
+
+file4 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686564217/costa_rica_e6z0mi.avif")
+trip4 = Trip.new(name: "Costa Rica Chica", location: "Puerto Viejo", budget: "520", user: user1)
+trip4.photo.attach(io: file4, filename: "nes.png", content_type: "image/png")
+trip4.save
+
+stay4 = Stay.create(trip: trip4, category: "Hotel", name: "Hotel Pura Vida", address: "Calle de General, 4550178,Limon, Costa Rica", cost: "500$")
+activity4 = Activity.create(trip: trip4, name: "Samnba Classes", cost: "250$", description: "Hips dont lie, prove yourself how good you really are at dancing", category: "fun")
+
+file5 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686564844/aaaaaaaastropze_xx9gia.avif")
+trip5 = Trip.new(name: "Get lost in France", location: "St:Tropze", budget: "999", user: user1)
+trip5.photo.attach(io: file5, filename: "nes.png", content_type: "image/png")
+trip5.save
+
+stay5 = Stay.create(trip: trip5, category: "Hotel", name: "Hôtel de Paris Saint-Tropez", address: "1 Trav. de la Gendarmerie, 83990 Saint-Tropez", cost: "500$")
+activity5 = Activity.create(trip: trip5, name: "Get drunk and party", cost: "250$", description: "Get together for the best Bar Tours in St.Tropez", category: "Party Hardy")
