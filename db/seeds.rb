@@ -35,7 +35,7 @@ activity2 = Activity.create(trip: trip2, name: "yoga session at the beach", cost
 file3 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686226533/hawaii1_hlocqa.webp")
 trip3 = Trip.new(name: "Hawaiaiai", location: "Hawaii", budget: "35000", user: user1)
 trip3.photo.attach(io: file3, filename: "nes.png", content_type: "image/png")
-trip2.save
+trip3.save
 
 stay3 = Stay.create(trip: trip3, category: "Hotel", name: "Hawaiing shining", address: "Main Road,31, n203349 Hawaii", cost: "500$")
-activity3 = Activity.create(trip: trip2, name: "Coconut tasting", cost: "250$", description: "Taste the best cocounts of Hawaii and see how the hawaainins process them to milk", category: "explore")
+activity3 = Activity.create(trip: trip3, name: "Coconut tasting", cost: "250$", description: "Taste the best cocounts of Hawaii and see how the hawaainins process them to milk", category: "explore")
