@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   resources :trips do
     resources :stays, only: [:index, :create]
+    resources :activities, only: [:index, :create]
   end
-  resources :activities, only: [:index, :show]
+
   resources :budgets
   resources :reviews
   get '/hotel_search', to: 'stays#hotel_search', as: 'hotel_search'

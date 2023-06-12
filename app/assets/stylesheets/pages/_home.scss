@@ -1,1 +1,9 @@
 // Specific CSS for your home-page
+.home-banner {
+  background: url(home-banner.jpg);
+  background-size: cover;
+  color: #181818;
+  min-height: 90vh;
+  align-content: center;
+  padding-right: 25vh;
+}

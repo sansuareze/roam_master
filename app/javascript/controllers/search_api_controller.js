@@ -87,7 +87,7 @@ export default class extends Controller {
           <div class="col-md-8">
            <p>${activity.description}<p>
            ${activity.price ? `<h4><b>€ ${activity.price.amount}</b></h4>` : ''}
-           <a class="btn btn-primary" style="float:right"> Add to trip </a> </div>
+           <a href='/trips/${this.tripId}/activities' class="btn btn-primary add-to-trip-link" data-action="click->stays-form#addToTrip" data-hotel-name="${hotel.name}" style="float:right"> Add to trip </a> </div>
           </div>
           </div>
         </div>`)
@@ -96,4 +96,53 @@ export default class extends Controller {
     }
       )
   }
+
+  // ADD TO TRIP
+
+  addToTrip(event) {
+    event.preventDefault();
+    const activityName = event.currentTarget.getAttribute("data-activity-name");
+    const tripId = this.getTripIdFromUrl();
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = `/trips/${tripId}/activities`;
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const csrfInput = document.createElement("input");
+    csrfInput.type = "hidden";
+    csrfInput.name = "authenticity_token";
+    csrfInput.value = csrfToken;
+
+    const hiddenField = document.createElement("input");
+    hiddenField.type = "hidden";
+    hiddenField.name = "name";
+    hiddenField.value = activityName;
+
+    const tripIdInput = document.createElement("input");
+    tripIdInput.type = "hidden";
+    tripIdInput.name = "trip_id";
+    tripIdInput.value = tripId;
+
+    form.appendChild(csrfInput);
+    form.appendChild(hiddenField);
+    form.appendChild(tripIdInput);
+    document.body.appendChild(form);
+    form.submit();
+  }
+
+  getTripIdFromUrl() {
+    const urlParts = window.location.pathname.split('/');
+    return urlParts[urlParts.length - 2]; // Changed index to -2 to get the tripId
+  }
+
+  attachEventListeners() {
+    const addToTripLinks = document.querySelectorAll(".add-to-trip-link");
+    addToTripLinks.forEach((link) => {
+      link.addEventListener("click", (event) => this.addToTrip(event));
+    });
+  }
+
+
+
 }

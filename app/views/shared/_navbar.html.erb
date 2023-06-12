@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
+  <div class="container">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "roam-master-navbar.jpg" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,4 +38,9 @@
       </ul>
     </div>
   </div>
+</div>
+
+<div data-controller="datepicker">
+  <input data-datepicker-target="input" type="text" name="foo" value="2022-06-05"/>
+  <button data-datepicker-target="toggle">...icon...</button>
 </div>

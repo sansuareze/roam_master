@@ -26,16 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_104711) do
     t.index ["trip_id"], name: "index_activities_on_trip_id"
   end
 
-  create_table "budgets", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "trip_id", null: false
-    t.float "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["trip_id"], name: "index_budgets_on_trip_id"
-    t.index ["user_id"], name: "index_budgets_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "content"
@@ -61,10 +51,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_104711) do
   create_table "trips", force: :cascade do |t|
     t.string "name"
     t.string "location"
+    t.float "budget"
     t.datetime "start_date"
     t.datetime "end_date"
     t.bigint "user_id", null: false
-    t.float "cost"
+    t.float "cost", default: 0.0
     t.integer "number_of_days"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -84,8 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_104711) do
   end
 
   add_foreign_key "activities", "trips"
-  add_foreign_key "budgets", "trips"
-  add_foreign_key "budgets", "users"
   add_foreign_key "reviews", "activities"
   add_foreign_key "reviews", "users"
   add_foreign_key "stays", "trips"
