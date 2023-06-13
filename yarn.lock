@@ -1227,6 +1227,11 @@ spdx-license-ids@^3.0.0:
   resolved "https://registry.npmjs.org/spdx-license-ids/-/spdx-license-ids-3.0.13.tgz"
   integrity sha512-XkD+zwiqXHikFZm4AX/7JSCXA98U5Db4AFd5XUg/+9UNtnH75+Z9KxtpYiJZx36mUDVOwH83pl7yvCer6ewM3w==
 
+stimulus-datepicker@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/stimulus-datepicker/-/stimulus-datepicker-1.0.4.tgz#3848e29fa7e5cafda37cf666c65b84b18af40d19"
+  integrity sha512-ozqYJIik7jq1U1piUfRsi+iIMI/kG5SXejH4PVE/7gppiFVew3JxPSoVFLQ2A07gliKNZh0+iTmf9keigZTxKA==
+
 stimulus@^3.2.1:
   version "3.2.1"
   resolved "https://registry.npmjs.org/stimulus/-/stimulus-3.2.1.tgz"

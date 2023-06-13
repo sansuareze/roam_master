@@ -1,4 +1,15 @@
 // Specific CSS for your home-page
+body {
+  overflow-x: hidden;
+}
+.home-banner {
+  background: url(home-banner.jpg);
+  background-size: cover;
+  color: #181818;
+  min-height: 90vh;
+  align-content: center;
+  padding-right: 25vh;
+}
   .card {
     border: 1px solid #ccc;
     border-radius: 4px;

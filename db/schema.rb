@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_103640) do
     t.float "cost"
     t.date "date"
     t.string "description"
-    t.string "category"
+    t.string "type"
     t.bigint "trip_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_103640) do
   end
 
   create_table "stays", force: :cascade do |t|
-    t.string "category"
+    t.string "type"
     t.string "name"
     t.float "cost"
     t.string "address"
