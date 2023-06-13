@@ -1,4 +1,7 @@
 // Specific CSS for your home-page
+body {
+  overflow-x: hidden;
+}
 .home-banner {
   background: url(home-banner.jpg);
   background-size: cover;

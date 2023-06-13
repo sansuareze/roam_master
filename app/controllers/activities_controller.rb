@@ -4,7 +4,8 @@ class ActivitiesController < ApplicationController
   def index
     @activities = policy_scope(Activity)
     @activities = Activity.all
-
+    @activity = Activity.new
+    @trip = Trip.find(params[:trip_id])
     authorize @activities
   end
 
@@ -48,6 +49,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.permit(:name)
+    params.permit(:name, :trip_id)
   end
 end

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <h1 class="text-center mt-5"><b>Set your city and pick activities for your trip!</b></h1>
     <div class="col-10 mt-5" data-controller="search-api">
-      <%= form_with url: activities_path, method: :get, class: "d-flex", data: { action: "submit->search-api#getLocation" }  do |form| %>
+      <%= form_with url: trip_activities_path(@trip), method: :get, class: "d-flex", data: { action: "submit->search-api#getLocation" }  do |form| %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",

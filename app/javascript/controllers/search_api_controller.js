@@ -87,11 +87,11 @@ export default class extends Controller {
           <div class="col-md-8">
            <p>${activity.description}<p>
            ${activity.price ? `<h4><b>€ ${activity.price.amount}</b></h4>` : ''}
-           <a href='/trips/${this.tripId}/activities' class="btn btn-primary add-to-trip-link" data-action="click->stays-form#addToTrip" data-hotel-name="${hotel.name}" style="float:right"> Add to trip </a> </div>
+           <a href='/trips/${this.tripId}/activities' class="btn btn-primary add-to-trip-link" data-action="click->activities-form#addToTrip" data-activity-name="${activity.name}" style="float:right"> Add to trip </a> </div>
           </div>
           </div>
         </div>`)
-      });z
+      });
       console.log(this.activityListTarget)
     }
       )
@@ -106,7 +106,7 @@ export default class extends Controller {
 
     const form = document.createElement("form");
     form.method = "POST";
-    form.action = `/trips/${tripId}/activities`;
+    form.action = `/trips/${this.tripId}/activities`;
 
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     const csrfInput = document.createElement("input");
@@ -142,7 +142,4 @@ export default class extends Controller {
       link.addEventListener("click", (event) => this.addToTrip(event));
     });
   }
-
-
-
 }
