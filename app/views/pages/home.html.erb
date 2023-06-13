@@ -6,3 +6,32 @@
     <%= link_to "Start Planning Now", new_trip_path, class: "btn btn-lg btn-primary", style: "font-weight:bold" %>
   </div>
 </div>
+
+<h1> Our Top 5 Recommendations </h1>
+
+<div class="card-container">
+  <% @trips.each do |t| %>
+    <div class="card">
+      <% if t.photo.attached? %>
+        <%= image_tag t.photo, class: "card-image", height: 300, width: 325 %>
+      <% end %>
+      <h4 class="card-title"><strong><%= t.name %></strong></h4>
+      <p class="card-info"><strong>Budget:</strong> <%= t.budget %></p>
+      <p class="card-info"><strong>Location:</strong> <%= t.location %></p>
+
+      <% t.stays.each do |stay| %>
+        <p class="card-info"><strong>Stay:</strong> <%= stay.name %></p>
+        <p class="card-info"><strong>Address:</strong> <%= stay.address %></p>
+        <p class="card-info"><strong>Cost:</strong> <%= stay.cost %></p>
+      <% end %>
+
+      <% t.activities.each do |activity| %>
+        <p class="card-info"><strong>Activity:</strong> <%= activity.name %></p>
+        <p class="card-info"><strong>Cost:</strong> <%= activity.cost %></p>
+        <p class="card-info"><strong>Description:</strong> <%= activity.description %></p>
+        <p class="card-info"><strong>Category:</strong> <%= activity.category %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= link_to "add new trip", new_trip_path, class: "btn btn-primary" %>

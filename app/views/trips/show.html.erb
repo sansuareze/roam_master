@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
 <h2>Lists from user <%= current_user.email %></h2>
 <h1 class="mt-5 mb-3"><%=@trip.name%></h1>
@@ -73,3 +74,34 @@
     </div>
   </div>
 </div>
+
+<% @trip.activities.each do |activity| %>
+        <div class="col-5">
+          <img class="img-fluid" src=`${activity.pictures[0]}` />
+        </div>
+        <div class="col-7">
+          <h4><%= activity.name %></h4>
+          <p><%= activity.description %></p>
+        </div>
+        <hr>
+          <% end %>
+=======
+<h1>ACTIVITIES</h1>
+<%= simple_form_for(@trip) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+   <%= f.input :budget %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <% if f.object.start_date.present? && f.object.end_date.present? %>
+    <p>Number of days: <%= Trip.calculate_days(f.object.start_date, f.object.end_date) %></p>
+  <% end %>
+<% end %>
+<h1><%=@trip.name%></h1>
+<h3>Hotel Options:</h3>
+<ul>
+  <% @trip.stays.each do |stay| %>
+    <li><%= stay.name %></li>
+  <% end %>
+</ul>
+>>>>>>> 70ab36da58fcbafc7b446df6fc4a838d631426d1

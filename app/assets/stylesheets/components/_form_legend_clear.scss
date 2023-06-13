@@ -8,3 +8,15 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-inline{
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.search-message{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 22px;
+}

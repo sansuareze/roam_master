@@ -1,8 +1,8 @@
 class StaysController < ApplicationController
-  protect_from_forgery with: :exception
-
+ 
   def index
     @trip = Trip.find(params[:trip_id])
+    protect_from_forgery with: :exception
     @stays = policy_scope(Stay)
     # render view to display @stays
   end
@@ -11,9 +11,14 @@ class StaysController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @stay = Stay.new(stay_params)
     @stay.trip = @trip
+    @stay.cost = params[:price] # Assign the price parameter to the stay
+    @stay.address = params[:location] # Assign the location parameter to the stay
     authorize @stay
+
     if @stay.save
-      redirect_to trip_path(@trip), notice: "Hotel added to your trip"
+      render json: @stay
+    else
+      render json: { error: 'Failed to add stay to trip' }, status: :unprocessable_entity
     end
   end
 
@@ -47,6 +52,6 @@ class StaysController < ApplicationController
   private
 
   def stay_params
-    params.permit(:name)
+    params.require(:stay).permit(:name, :type, :cost, :address, :trip_id, :photo)
   end
 end
