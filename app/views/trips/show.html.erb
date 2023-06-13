@@ -20,7 +20,7 @@
         </div>
 
     <div class="col-6 offset-1">
-    <h1 class="mt-5 mb-3">Trip <b><%=@trip.name%></b> <a href="#editactivities" class="btn btn-sm btn-success">edit trip</a> <a class="btn btn-secondary btn-sm" onclick="window.location.href='/trips/<%= @trip.id %>/stays'">Look for more stays</a></h1>
+    <h1 class="mt-5 mb-3">Trip <b><%= @trip.name %></b> <a href="#editactivities" class="btn btn-sm btn-success">edit trip</a> <a class="btn btn-secondary btn-sm" onclick="window.location.href='/trips/<%= @trip.id %>/stays'">Look for more stays</a></h1>
       <h2>Key info about your trip</h2>
         <p style="font-size:1.2em"><b><%= @trip.name %></b> starts from <b><%= @trip.start_date %></b> to <b><%= @trip.end_date %></b> at <b><%= @trip.location %></b>, with a
         <b>€ <%= @trip.budget %></b> budget.</p>
@@ -38,7 +38,7 @@
         <div class="col-12 p-2">
         </div>
         <div class="row p-5 bg-white m-2">
-        <h4><i class="fa-sharp fa-solid fa-person-hiking"></i> <%= activity.name %></h4>
+        <h4><i class="fa-sharp fa-solid fa-person-hiking"></i><%= activity.name %></h4>
           <div class="col-5">
             <img class="img-fluid" src="https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/7a/e0.jpg" />
           </div>
