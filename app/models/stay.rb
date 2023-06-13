@@ -3,4 +3,5 @@ class Stay < ApplicationRecord
   def price
     self.cost
   end
+  has_one_attached :photo
 end

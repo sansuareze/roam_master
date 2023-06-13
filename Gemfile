@@ -73,6 +73,7 @@ group :development do
 end
 
 gem "pundit"
+gem "cloudinary"
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

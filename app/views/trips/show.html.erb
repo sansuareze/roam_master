@@ -1,6 +1,109 @@
+
 <h1 class = "d-flex justify-content-center"> <%= @trip.name %></h3>
 <h3 class = "d-flex justify-content-center">Saved Hotels:</h3>
 <div class="d-flex justify-content-center width">
+<div class="container">
+<h2>Lists from user <%= current_user.email %></h2>
+<h1 class="mt-5 mb-3"><%=@trip.name%></h1>
+  <div class="row">
+    <div class="col-5">
+      <div class="trip-list row"  style="border:1px solid #ccdce3;">
+        <div class="col-12 bg-white p-2">
+          <h3><i class="fa-solid fa-hotel"></i><b> Hotel</b></h3>
+        </div>
+        <div class="col-4 p-3">
+          <img class="img-fluid" src="https://media.guruwalk.com/sh1xnq6b1afbahh8vqwiate3nyyj" />
+        </div>
+        <div class="col-8 p-3">
+          <h5>Lorem Ipsum Cha</h5>
+          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
+        </div>
+
+        <% @trip.stays.each do |stay| %>
+        <div class="col-5">
+          <img class="img-fluid" src=`${stay.pictures[0]}` />
+        </div>
+        <div class="col-7">
+          <h4><%= stay.name %></h4>
+          <p><%= stay.description %></p>
+        </div>
+        <hr>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="col-5 offset-1">
+    <div class="trip-list row"  style="border:1px solid #ccdce3;">
+        <div class="col-12 bg-white p-2">
+          <h3><i class="fa-sharp fa-solid fa-person-hiking"></i> <b>Activities</b></h3>
+        </div>
+        <div class="col-4 p-3">
+          <img class="img-fluid" src="https://media.guruwalk.com/yj9fgn7i4xoy22f0s8z3u0nvvqty" />
+        </div>
+        <div class="col-8 p-3">
+          <h5>Lorem Ipsum Cha</h5>
+          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
+          <a href="#" class="btn btn-danger" style="float:right">Unlist</a>
+        </div>
+        <hr>
+        <div class="col-4 p-3">
+          <img class="img-fluid" src="https://media.guruwalk.com/yj9fgn7i4xoy22f0s8z3u0nvvqty" />
+        </div>
+        <div class="col-8 p-3">
+          <h5>Lorem Ipsum Cha</h5>
+          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
+          <a href="#" class="btn btn-danger" style="float:right">Unlist</a>
+        </div>
+        <hr>
+        <div class="col-4 p-3">
+          <img class="img-fluid" src="https://media.guruwalk.com/yj9fgn7i4xoy22f0s8z3u0nvvqty" />
+        </div>
+        <div class="col-8 p-3">
+          <h5>Lorem Ipsum Cha</h5>
+          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
+          <a href="#" class="btn btn-danger" style="float:right">Unlist</a>
+        </div>
+        <% @trip.stays.each do |stay| %>
+        <div class="col-5">
+          <img class="img-fluid" src=`${stay.pictures[0]}` />
+        </div>
+        <div class="col-7">
+          <h4><%= stay.name %></h4>
+          <p><%= stay.description %></p>
+        </div>
+        <hr>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% @trip.activities.each do |activity| %>
+        <div class="col-5">
+          <img class="img-fluid" src=`${activity.pictures[0]}` />
+        </div>
+        <div class="col-7">
+          <h4><%= activity.name %></h4>
+          <p><%= activity.description %></p>
+        </div>
+        <hr>
+          <% end %>
+          <hr>
+
+<h1>ACTIVITIES</h1>
+<%= simple_form_for(@trip) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+   <%= f.input :budget %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <% if f.object.start_date.present? && f.object.end_date.present? %>
+    <p>Number of days: <%= Trip.calculate_days(f.object.start_date, f.object.end_date) %></p>
+  <% end %>
+<% end %>
+<h1><%=@trip.name%></h1>
+<h3>Hotel Options:</h3>
+<ul>
   <% @trip.stays.each do |stay| %>
 <div class="card" style="width: 40%;border: 1px solid black">
     <div class="card-content">

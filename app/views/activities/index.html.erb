@@ -1,18 +1,24 @@
-<div class="container">
+<% content_for :head do %>
+  <%= csrf_meta_tags %>
+<% end %>
+
+<div class="container" data-controller="search-api" data-trip-id="<%= @trip.id %>">
   <div class="row justify-content-center">
     <h1 class="text-center mt-5"><b>Set your city and pick activities for your trip!</b></h1>
-    <div class="col-10 mt-5" data-controller="search-api">
-      <%= form_with url: activities_path, method: :get, class: "d-flex", data: { action: "submit->search-api#getLocation" }  do |form| %>
+    <div class="col-10 mt-5">
+      <%= form_with url: trip_activities_path(@trip), method: :post, class: "d-flex", data: { action: "submit->search-api#getLocation" }  do |form| %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              style: "background:white",
+              style: "background:white;height: 61px; border-radius: 7px;",
               placeholder: "Type your activities of interest here",
+              value: params[:query],
               data: { search_api_target: "input" }
           %>
-        <%= submit_tag "Find activities", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Find activities", name: "", class: "btn btn-primary", data: {search_api_target: 'form'} %>
       <% end %>
-      <div class="activity-list row mb-5" data-search-api-target="activityList"></div>
-    </div>
+      </div>
   </div>
+      <div class="activity-list row mb-5" data-search-api-target="activityList"></div>
 </div>
