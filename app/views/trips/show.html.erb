@@ -1,3 +1,14 @@
+
+<%= simple_form_for(@trip) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+   <%= f.input :budget %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <% if f.object.start_date.present? && f.object.end_date.present? %>
+    <p>Number of days: <%= Trip.calculate_days(f.object.start_date, f.object.end_date) %></p>
+  <% end %>
+<% end %>
 <h1><%=@trip.name%></h1>
 <h3>Hotel Options:</h3>
 <ul>
