@@ -4,4 +4,7 @@
    <%= f.input :budget %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
+  <% if f.object.start_date.present? && f.object.end_date.present? %>
+    <p>Number of days: <%= Trip.calculate_days(f.object.start_date, f.object.end_date) %></p>
+  <% end %>
 <% end %>
