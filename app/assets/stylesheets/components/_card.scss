@@ -22,3 +22,10 @@
   justify-content: center;
   font-size: 15px;
 }
+
+.card-content{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :activities, only: [:index, :show]
   resources :budgets
   resources :reviews
+  resources :stays, only: [:destroy]
   get '/hotel_search', to: 'stays#hotel_search', as: 'hotel_search'
   end
 

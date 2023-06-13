@@ -46,7 +46,8 @@ class StaysController < ApplicationController
   def destroy
     @stay = Stay.find(params[:id])
     @stay.destroy
-    redirect_to stays_path
+    authorize @stay
+    redirect_to trip_path(@stay.trip_id)
   end
 
   private

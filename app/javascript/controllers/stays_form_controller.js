@@ -22,6 +22,7 @@ export default class extends Controller {
     });
   }
 
+
   getAccessToken() {
     const data = {
       grant_type: "client_credentials",
