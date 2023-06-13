@@ -42,7 +42,7 @@ class TripsController < ApplicationController
   def edit
     @trip = Trip.find(params[:id])
   end
-
+  
   def update
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)

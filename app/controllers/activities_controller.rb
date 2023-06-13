@@ -1,6 +1,9 @@
 class ActivitiesController < ApplicationController
   def index
+    @activities = policy_scope(Activity)
     @activities = Activity.all
+
+    authorize @activities
   end
 
   def show

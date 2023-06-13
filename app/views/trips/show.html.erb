@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@trip) do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
@@ -8,3 +9,10 @@
     <p>Number of days: <%= Trip.calculate_days(f.object.start_date, f.object.end_date) %></p>
   <% end %>
 <% end %>
+<h1><%=@trip.name%></h1>
+<h3>Hotel Options:</h3>
+<ul>
+  <% @trip.stays.each do |stay| %>
+    <li><%= stay.name %></li>
+  <% end %>
+</ul>
