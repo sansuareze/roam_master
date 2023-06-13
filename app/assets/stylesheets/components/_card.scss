@@ -1,0 +1,24 @@
+.small-image{
+  width: 125px;
+  height: 125px;
+  position:absolute;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  font-size: x-small;
+}
+
+.card-title{
+  display: flex;
+  justify-content: center;
+}
+
+.price{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+}

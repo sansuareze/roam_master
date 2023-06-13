@@ -11,9 +11,14 @@ class StaysController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @stay = Stay.new(stay_params)
     @stay.trip = @trip
+    @stay.cost = params[:price] # Assign the price parameter to the stay
+    @stay.address = params[:location] # Assign the location parameter to the stay
     authorize @stay
+
     if @stay.save
-      redirect_to trip_path(@trip), notice: "Hotel added to your trip"
+      render json: @stay
+    else
+      render json: { error: 'Failed to add stay to trip' }, status: :unprocessable_entity
     end
   end
 
