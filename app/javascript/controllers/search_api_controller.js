@@ -115,6 +115,27 @@ export default class extends Controller {
             </div>
           </div>
           </div>
+        </div><div class="col-10 offset-1 mt-5 bg-white p-4 animate__animated animate__backInUp">
+            <h3>
+              <b>${activity.name}</b>
+            </h3>
+          <div class="row">
+            <div class="col-md-4">
+              <img class="img-fluid" src="${activity.pictures[0]}" />
+            </div>
+            <div class="col-md-8">
+              <p>${activity.description}<p>
+              ${activity.price ? `<h4><b>€ ${activity.price.amount}</b></h4>` : ''}
+              <a href='/trips/${this.tripId}/activities' class="btn btn-primary add-to-trip-link" data-action="click->search-api#addToTrip" data-activity-name="${activity.name}"
+              data-activity-cost="${activity.price.amount}"
+              data-activity-description="${activity.description}"
+              data-activity-img="${activity.pictures[0]}"
+              style="float:right">
+                Add to trip
+              </a>
+            </div>
+          </div>
+          </div>
         </div>`)
         });
       })

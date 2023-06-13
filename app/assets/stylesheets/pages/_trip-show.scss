@@ -1,0 +1,21 @@
+
+.hotel-card {
+  border-radius: 16px;
+  box-shadow: 0px 0px 16px #939393;
+}
+
+.hotel-picture {
+  background: url(https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg);
+  background-size: cover;
+  min-height: 340px;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+
+.trip-edit-bg {
+  --bs-bg-opacity: 1;
+  background-color: #e7ecef;
+  border: 1px solid #d8e0e5;
+}
