@@ -4,7 +4,7 @@
     <div class="col-md-8 justify-content-center">
       <%= form_with url: trip_stays_path(@trip), method: :post, html: { class: "d-flex", data: { action: "submit->stays-form#searchLocation" } } do |f| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <%= f.text_field :query, class: "form-control", style: "background:white;height: 61px; border-radius: 7px;", placeholder: "Look for a hotel", value: params[:query], data: { stays_form_target: "input" } %>
+        <%= f.text_field :query, class: "form-control stay-search-input", placeholder: "Look for a hotel", value: params[:query], data: { stays_form_target: "input" } %>
         <%= f.submit "Search", class: "btn btn-primary", data: { stays_form_target: "form" } %>
       <% end %>
     </div>
