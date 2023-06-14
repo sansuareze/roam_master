@@ -15,9 +15,12 @@ class ActivitiesController < ApplicationController
     @activity.trip = @trip
     @activity.name = params[:name]
     @activity.description = params[:description]
-    @activity.cost = params[:cost]
+    @activity.cost = params[:price].to_i * @trip.number_of_days.to_i
+    @trip.cost = @trip.cost + @activity.cost
+    @trip.save
     authorize @activity
     if @activity.save
+      @trip.update(budget: @trip.budget - @activity.cost)
       render json: @activity
     else
       render json: { error: "failed to add activity to trip"}, status: :unprocessable_entity
