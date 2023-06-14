@@ -44,7 +44,7 @@
           </div>
           <div class="col-7">
             <p><%= activity.description %></p>
-            <%= link_to "Remove", trip_activity_path(activity), class: "btn btn-sm btn-danger", style: "float:right", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "Remove", activity_path(activity), class: "btn btn-sm btn-danger", style: "float:right", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
         </div>
 
