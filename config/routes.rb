@@ -4,11 +4,12 @@ Rails.application.routes.draw do
 
   resources :trips do
     resources :stays, only: [:index, :create]
-    resources :activities, only: [:index, :show, :create, :destroy]
+    resources :activities, only: [:index, :show, :create]
   end
   resources :budgets
   resources :reviews
   resources :stays, only: [:destroy]
+  resources :activities, only: [:destroy]
   get '/hotel_search', to: 'stays#hotel_search', as: 'hotel_search'
   end
 
