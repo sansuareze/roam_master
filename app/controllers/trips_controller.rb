@@ -45,6 +45,7 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
+    authorize @trip
   end
 
   def update
