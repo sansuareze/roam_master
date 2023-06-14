@@ -1,11 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="card">
-      <div class="card-item">
-        <% @trips.each do |trip| %>
-          <h3>`${trip.name}`</h3>
-        <% end %>
+  <h1>All Trips</h1>
+  <% @trips.each do |trip| %>
+    <div class="card mt-5">
+      <% if trip.photo.attached? %>
+        <%= image_tag trip.photo, class: "card-image", height: 300, width: 325 %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= trip.name %></h5>
+        <p class="card-text">Location: <%= trip.location %></p>
+        <p class="card-text">Budget: <%= trip.budget %></p>
+        <p class="card-text">Start Date: <%= trip.start_date %></p>
+        <p class="card-text">End Date: <%= trip.end_date %></p>
+        <p class="card-text">Number of Days: <%= trip.number_of_days %></p>
+        <%= link_to "View Trip", trip_path(trip), class: "btn btn-primary" %>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

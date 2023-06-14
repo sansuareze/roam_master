@@ -2,7 +2,8 @@ class TripsController < ApplicationController
   protect_from_forgery with: :exception
 
   def index
-    @trips = Trip.all
+    @trips = policy_scope(Trip.all)
+    authorize @trips
   end
 
   def show
@@ -44,6 +45,7 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
+    authorize @trip
   end
 
   def update

@@ -16,7 +16,7 @@ user1 = User.create(email: "admin@gmail.com", password: "123456")
 puts "creating trips"
 
 file1 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686226359/bali1_b5xwxh.webp")
-trip1 = Trip.new(name: "Chill Trip", location: "Bali", budget: "10000", user: user1)
+trip1 = Trip.new(name: "Weekend in Bali", location: "Bali", budget: "1000", user: user1)
 trip1.photo.attach(io: file1, filename: "nes.png", content_type: "image/png")
 trip1.save
 
@@ -33,7 +33,7 @@ stay2 = Stay.create(trip: trip2, category: "Hotel", name: "Torre del Mar", addre
 activity2 = Activity.create(trip: trip2, name: "yoga session at the beach", cost: "250$", description: "Find your inner Piece at the beach with the amazing Paolo as your teacher", category: "relax")
 
 file3 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686226533/hawaii1_hlocqa.webp")
-trip3 = Trip.new(name: "Hawaiaiai", location: "Hawaii", budget: "35000", user: user1)
+trip3 = Trip.new(name: "Hawaii for the Summer", location: "Hawaii", budget: "35000", user: user1)
 trip3.photo.attach(io: file3, filename: "nes.png", content_type: "image/png")
 trip3.save
 
@@ -47,11 +47,3 @@ trip4.save
 
 stay4 = Stay.create(trip: trip4, category: "Hotel", name: "Hotel Pura Vida", address: "Calle de General, 4550178,Limon, Costa Rica", cost: "500$")
 activity4 = Activity.create(trip: trip4, name: "Samnba Classes", cost: "250$", description: "Hips dont lie, prove yourself how good you really are at dancing", category: "fun")
-
-file5 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686564844/aaaaaaaastropze_xx9gia.avif")
-trip5 = Trip.new(name: "Get lost in France", location: "St:Tropze", budget: "999", user: user1)
-trip5.photo.attach(io: file5, filename: "nes.png", content_type: "image/png")
-trip5.save
-
-stay5 = Stay.create(trip: trip5, category: "Hotel", name: "Hôtel de Paris Saint-Tropez", address: "1 Trav. de la Gendarmerie, 83990 Saint-Tropez", cost: "500$")
-activity5 = Activity.create(trip: trip5, name: "Get drunk and party", cost: "250$", description: "Get together for the best Bar Tours in St.Tropez", category: "Party Hardy")

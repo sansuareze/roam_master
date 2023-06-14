@@ -4,17 +4,17 @@
   <h5>Select your Dates, Uncover Exotic Locations, and Curate a Budget-friendly Escape with our App</h5>
 </div>
 <div  class="container p-5 mt-5 bg-white" style="margin-bottom:7vh">
-<%= simple_form_for(@trip) do |f| %>
-  <%= f.label :name, "Name your trip" %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :budget %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <% if f.object.start_date.present? && f.object.end_date.present? %>
-    <p>Number of days: <%= @trip.calculate_days %></p>
+  <%= simple_form_for(@trip) do |f| %>
+    <%= f.label :name, "Name your trip" %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :budget %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <% if f.object.start_date.present? && f.object.end_date.present? %>
+      <p>Number of days: <%= @trip.calculate_days %></p>
+    <% end %>
+    <%= f.submit class: "btn btn-primary create-trip", style: "float:right" %>
   <% end %>
-  <%= f.submit class: "btn btn-primary create-trip", style: "float:right" %>
-
-<% end %>
 </div>
+kfuz

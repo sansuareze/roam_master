@@ -1,37 +1,31 @@
-<div class="row home-banner">
-  <div class="text-end" style="background: #f1f1f152; padding:10px; border-radius:7px">
-    <h1>Roam Master, Your Ultimate Trip Planner</h1>
+<div class="row home-banner" style="padding:30px">
+ <div class="text-end" style="background: #f1f1f152; padding:30px; border-radius:15px; display: flex; flex-direction: column; align-items: center; border:1px inset lightblue">
+    <h1 style = "font-weight:900">Roam Master, Your Ultimate Trip Planner</h1>
     <h2>Effortlessly organize, budget, and enjoy your dream vacation</h2>
     <p><b>Set your budget, organize activities, and find the perfect accommodations with ease. <br> Say goodbye to stress and hello to a seamless travel experience</b></p>
-    <%= link_to "Start Planning Now", new_trip_path, class: "btn btn-lg btn-primary", style: "font-weight:bold" %>
+    <%= link_to "Start Planning Now", new_trip_path, class: "btn btn-lg btn-primary", style: "font-weight:bold; color:white" %>
   </div>
 </div>
 
-<h1> Our Top 5 Recommendations </h1>
+<h1 class = "d-flex justify-content-center" style="font-weight:bold; color:black;margin-top:30px; margin-bottom:20px;margin-left:20px;margin-right:20px"> Some of our trip recommendations </h1>
 
-<div class="card-container">
+<div class="card-container" style="display:flex; flex-direction: row; flex-wrap: nowrap;">
   <% @trips.each do |t| %>
-    <div class="card">
+    <div class="card" style="border:1px solid black; align-items:center; background:lightblue;padding:inherit">
       <% if t.photo.attached? %>
-        <%= image_tag t.photo, class: "card-image", height: 300, width: 325 %>
+        <%= image_tag t.photo, class: "card-image"%>
       <% end %>
       <h4 class="card-title"><strong><%= t.name %></strong></h4>
-      <p class="card-info"><strong>Budget:</strong> <%= t.budget %></p>
+      <p class="card-info"><strong>€</strong> <%= t.budget %></p>
       <p class="card-info"><strong>Location:</strong> <%= t.location %></p>
 
       <% t.stays.each do |stay| %>
-        <p class="card-info"><strong>Stay:</strong> <%= stay.name %></p>
-        <p class="card-info"><strong>Address:</strong> <%= stay.address %></p>
-        <p class="card-info"><strong>Cost:</strong> <%= stay.cost %></p>
+        <p class="card-info"><strong>Stay:</strong> <%= stay.name %> (€<%= stay.cost %>)</p>
       <% end %>
 
       <% t.activities.each do |activity| %>
-        <p class="card-info"><strong>Activity:</strong> <%= activity.name %></p>
-        <p class="card-info"><strong>Cost:</strong> <%= activity.cost %></p>
-        <p class="card-info"><strong>Description:</strong> <%= activity.description %></p>
-        <p class="card-info"><strong>Category:</strong> <%= activity.category %></p>
+        <p class="card-info">Activities such as <%= activity.name %></p>
       <% end %>
     </div>
   <% end %>
 </div>
-<%= link_to "add new trip", new_trip_path, class: "btn btn-primary" %>
