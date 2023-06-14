@@ -1,0 +1,16 @@
+<div class="navbar white-bg trip-budget-nav" id="navbar">
+  <div class="container">
+    <h5 class="text-center"><i class="fa-solid fa-calendar-day"></i> <%= @trip.number_of_days %>
+        <% if @trip.number_of_days > 1 %>
+         <%= "days trip" %>
+        <% else %>
+          <%= "day trip" %>
+        <% end %>
+    </h5>
+    <div>
+      <h2 class="text-center"><b><i class="fa-solid fa-euro-sign"></i> <%= @trip.budget - @trip.cost  %></b></h2>
+    <p class="text-center">REMAINDING BUDGET</p>
+    </div>
+    <h5 class="text-center"><i class="fa-sharp fa-solid fa-location-dot"></i> <%= @trip.location %></h5>
+  </div>
+</div>

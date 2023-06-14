@@ -46,10 +46,19 @@ class StaysController < ApplicationController
 
   def destroy
     @stay = Stay.find(params[:id])
-    @stay.destroy
+    @trip = @stay.trip
+    @trip.cost = @trip.cost - @stay.cost
+    @trip.save
     authorize @stay
-    redirect_to trip_path(@stay.trip_id)
+    if @stay.destroy
+      redirect_to trip_path(@trip)
+    else
+      render json: { error: "Failed to destroy activity" }, status: :unprocessable_entity
+    end
+
   end
+
+
 
   private
 
