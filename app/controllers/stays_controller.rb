@@ -4,19 +4,20 @@ class StaysController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @stays = policy_scope(Stay)
-    # render view to display @stays
+    # render view to display
   end
 
   def create
     @trip = Trip.find(params[:trip_id])
     @stay = Stay.new(stay_params)
     @stay.trip = @trip
-    @stay.cost = params[:price] # Assign the price parameter to the stay
+    @stay.cost = params[:price].to_i * @trip.number_of_days.to_i
     @stay.address = params[:location] # Assign the location parameter to the stay
+    @trip.cost = @trip.cost + @stay.cost
+    @trip.save
     authorize @stay
-
     if @stay.save
-      render json: @stay
+      render json: { stay: @stay }
     else
       render json: { error: 'Failed to add stay to trip' }, status: :unprocessable_entity
     end

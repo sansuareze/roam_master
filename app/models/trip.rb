@@ -10,4 +10,10 @@ class Trip < ApplicationRecord
     days = (last_date - first_date).to_i
     return days
   end
+
+  def total_stays_cost
+    stays.sum(:cost)
+  end
+
+
 end
