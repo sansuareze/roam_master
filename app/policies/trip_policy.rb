@@ -7,7 +7,10 @@ class TripPolicy < ApplicationPolicy
     true
   end
 
-  
+  def edit?
+    update?
+  end
+
   def new?
     create?
   end

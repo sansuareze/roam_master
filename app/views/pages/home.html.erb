@@ -1,13 +1,13 @@
-<div class="row home-banner">
-  <div class="text-end" style="background: #f1f1f152; padding:10px; border-radius:7px">
-    <h1>Roam Master, Your Ultimate Trip Planner</h1>
+<div class="row home-banner" style="padding:30px">
+ <div class="text-end" style="background: #f1f1f152; padding:30px; border-radius:15px; display: flex; flex-direction: column; align-items: center; border:1px inset lightblue">
+    <h1 style = "font-weight:900">Roam Master, Your Ultimate Trip Planner</h1>
     <h2>Effortlessly organize, budget, and enjoy your dream vacation</h2>
     <p><b>Set your budget, organize activities, and find the perfect accommodations with ease. <br> Say goodbye to stress and hello to a seamless travel experience</b></p>
     <%= link_to "Start Planning Now", new_trip_path, class: "btn btn-lg btn-primary", style: "font-weight:bold" %>
   </div>
 </div>
 
-<h1> Our Top 5 Recommendations </h1>
+<h1 class = "d-flex justify-content-center"> Some of our trip recommendations </h1>
 
 <div class="card-container">
   <% @trips.each do |t| %>
