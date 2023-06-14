@@ -1,21 +1,6 @@
-
-
-<p>Budget: <%= @trip.budget %></p>
-<p>Total Cost: <%= @trip.cost %></p>
-<p>Remaining Budget: <%= @trip.budget - @trip.cost %></p>
-<h1 class = "d-flex justify-content-center"> <%= @trip.name %></h3>
-<h3 class = "d-flex justify-content-center">Saved Hotels:</h3>
-<div class="d-flex justify-content-center width">
-
 <div class="container">
   <div class="row mt-5">
         <div class="col-5">
-
-          <img class="img-fluid" src=`${stay.pictures[0]}` />
-        </div>
-        <div class="col-7">
-          <h4><%= stay.name %></h4>
-        </div>
           <% @trip.stays.each do |stay| %>
             <div class="hotel-card bg-white mt-5">
               <div class="hotel-picture"></div>
@@ -31,7 +16,6 @@
                   </div>
               </div>
             </div>
-
           <% end %>
         </div>
 
@@ -45,45 +29,6 @@
 
         <a href="#myactivities" class="btn btn-info"> See my activities</a>
     </div>
-
-    <div class="col-5 offset-1">
-    <div class="trip-list row"  style="border:1px solid #ccdce3;">
-        <div class="col-12 bg-white p-2">
-          <h3><i class="fa-sharp fa-solid fa-person-hiking"></i> <b>Activities</b></h3>
-        </div>
-        <div class="col-4 p-3">
-          <img class="img-fluid" src="https://media.guruwalk.com/yj9fgn7i4xoy22f0s8z3u0nvvqty" />
-        </div>
-        <div class="col-8 p-3">
-          <h5>Lorem Ipsum Cha</h5>
-          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
-          <a href="#" class="btn btn-danger" style="float:right">Unlist</a>
-        </div>
-        <hr>
-        <div class="col-4 p-3">
-          <img class="img-fluid" src="https://media.guruwalk.com/yj9fgn7i4xoy22f0s8z3u0nvvqty" />
-        </div>
-        <div class="col-8 p-3">
-          <h5>Lorem Ipsum Cha</h5>
-          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
-          <a href="#" class="btn btn-danger" style="float:right">Unlist</a>
-        </div>
-        <hr>
-        <div class="col-4 p-3">
-          <img class="img-fluid" src="https://media.guruwalk.com/yj9fgn7i4xoy22f0s8z3u0nvvqty" />
-        </div>
-        <div class="col-8 p-3">
-          <h5>Lorem Ipsum Cha</h5>
-          <p>Nullam dignissim in nisl sit amet auctor. Nulla facilisi. Phasellus interdum venenatis felis vitae imperdiet</p>
-          <a href="#" class="btn btn-danger" style="float:right">Unlist</a>
-        </div>
-        <% @trip.stays.each do |stay| %>
-        <div class="col-5">
-          <img class="img-fluid" src=`${stay.pictures[0]}` />
-        </div>
-        <div class="col-7">
-          <h4><%= stay.name %></h4>
-
 
     <div class="col-md-12" id="myactivities">
 
@@ -99,8 +44,8 @@
           </div>
           <div class="col-7">
             <p><%= activity.description %></p>
-            <%= link_to "Remove", activity_path(activity), class: "btn btn-sm btn-danger", style: "float:right", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
+            <%= link_to "Remove", trip_activity_path(activity), class: "btn btn-sm btn-danger", style: "float:right", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
         </div>
 
           <% end %>
