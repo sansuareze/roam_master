@@ -28,3 +28,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+.card-image{
+  height: 250px;
+  width:100%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
