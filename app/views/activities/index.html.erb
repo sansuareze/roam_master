@@ -10,8 +10,7 @@
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <%= text_field_tag :query,
               params[:query],
-              class: "form-control",
-              style: "background:white;height: 61px; border-radius: 7px;",
+              class: "form-control activity-search-input",
               placeholder: "Type your activities of interest here",
               value: params[:query],
               data: { search_api_target: "input" }

@@ -128,7 +128,7 @@ export default class extends Controller {
 
         const numResults = data.data.length;
         const message = document.createElement("p");
-        message.textContent = `You got ${numResults} search results:`;
+        message.textContent = `You got ${numResults} search results`;
         message.classList.add("search-message");
         listContainer.appendChild(message);
 
