@@ -7,7 +7,6 @@ class TripPolicy < ApplicationPolicy
     true
   end
 
-  
   def new?
     create?
   end
