@@ -134,20 +134,24 @@ export default class extends Controller {
 
         data.data.forEach((hotel) => {
           const card = document.createElement("div");
-          card.classList.add("card");
+          card.classList.add("col-4");
 
-          const image = document.createElement("img");
-          image.src =
-            "https://res.cloudinary.com/dqdghubdw/image/upload/c_scale,w_50,h_50,q_auto,f_auto/v1686306798/marquis-3-min_yp0tq6.jpg";
-          image.classList.add("small-image");
-          image.alt = hotel.name;
-          card.appendChild(image);
+
+
+          const hotelCardBg = document.createElement("div");
+          hotelCardBg.style.background = "url(https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg)";
+          hotelCardBg.style.width = "100%";
+          hotelCardBg.classList.add("bg-image");
+          hotelCardBg.alt = hotel.name;
+          card.appendChild(hotelCardBg);
 
           const cardBody = document.createElement("div");
           cardBody.classList.add("card-body");
+          cardBody.classList.add("bg-white");
+          cardBody.classList.add("mb-3");
 
           const title = document.createElement("h6");
-          title.classList.add("card-title");
+          title.classList.add("card-title-hotel");
           title.textContent = hotel.name;
           cardBody.appendChild(title);
 
@@ -162,7 +166,7 @@ export default class extends Controller {
           link.textContent = "Add to trip";
           link.setAttribute("data-hotel-name", hotel.name);
           link.setAttribute("data-hotel-price", price);
-          link.classList.add("btn", "btn-primary", "add-to-trip-link");
+          link.classList.add("btn", "btn-primary", "add-to-trip-link", "m-3");
           link.setAttribute("data-action", "click->stays-form#addToTrip");
           cardBody.appendChild(link);
 
