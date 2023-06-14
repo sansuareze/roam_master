@@ -1,21 +1,20 @@
 <div class="container" data-controller="stays-form" data-trip-id="<%= @trip.id %>">
   <h3 class="text-center my-3">Type your destination to get a list of hotel options</h3>
   <div class="row justify-content-center">
-    <div class="col-md-6 d-flex justify-content-center">
-      <%= form_with url: trip_stays_path(@trip), method: :post, html: { class: "form-inline", data: { action: "submit->stays-form#searchLocation" } } do |f| %>
+    <div class="col-md-8 justify-content-center">
+      <%= form_with url: trip_stays_path(@trip), method: :post, html: { class: "d-flex", data: { action: "submit->stays-form#searchLocation" } } do |f| %>
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <%= f.text_field :query, class: "form-control form-control-sm mr-sm-2 search-bar", placeholder: "Look for a hotel", value: params[:query], data: { stays_form_target: "input" } %>
-        <%= f.submit "Search", class: "btn btn-primary btn-sm search-button mx-1 my-2", data: { stays_form_target: "form" } %>
+        <%= f.text_field :query, class: "form-control", style: "background:white;height: 61px; border-radius: 7px;", placeholder: "Look for a hotel", value: params[:query], data: { stays_form_target: "input" } %>
+        <%= f.submit "Search", class: "btn btn-primary", data: { stays_form_target: "form" } %>
       <% end %>
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-6">
-      <ul class="list-group hotellist" data-stays-form-target="list">
+    <div class="col-md-12">
+      <ul class="row" data-stays-form-target="list">
         <!-- Use an empty <li> element as a placeholder for the links -->
-        <li data-target="stays-form.listItem"></li>
+        <li data-target="stays-form.listItem" style="list-style:none"></li>
       </ul>
     </div>
   </div>
 </div>
-
