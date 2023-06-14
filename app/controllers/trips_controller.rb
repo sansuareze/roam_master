@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+  protect_from_forgery with: :exception
+
   def index
     @trips = Trip.all
   end
@@ -16,6 +18,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
+    @trip.budget = params[:trip][:budget]
     start_date = DateTime.new(
       params[:trip]["start_date(1i)"].to_i,
       params[:trip]["start_date(2i)"].to_i,
@@ -42,7 +45,7 @@ class TripsController < ApplicationController
   def edit
     @trip = Trip.find(params[:id])
   end
-  
+
   def update
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)
