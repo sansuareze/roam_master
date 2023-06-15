@@ -24,7 +24,7 @@ stay1 = Stay.create(trip: trip1, category: "Hotel", name: "The Ritz-Carlton", ad
 activity1 = Activity.create(trip: trip1, name: "surfing and drinks", cost: "250$", description: "Take your first surfing lessons with advanced teachersand enjoy a nice drink afterwards", category: "sport and drinks")
 
 
-file2 = URI.open("https://res.cloudinary.com/dqdghubdw/image/upload/v1686835571/development/vdskk7k1d3ynn0e9f0d8mdbxt24g.avif")
+file2 = URI.open("https://images.unsplash.com/photo-1573790387438-4da905039392?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2825&q=80")
 trip2 = Trip.new(name: "One Night in Ibiza", location: "Ibiza", budget: "5000", user: user1)
 trip2.photo.attach(io: file2, filename: "nes.png", content_type: "image/png")
 trip2.save
@@ -40,7 +40,7 @@ trip3.save
 stay3 = Stay.create(trip: trip3, category: "Hotel", name: "Hawaiing shining", address: "Main Road,31, n203349 Hawaii", cost: "500$")
 activity3 = Activity.create(trip: trip3, name: "Coconut tasting", cost: "250$", description: "Taste the best cocounts of Hawaii and see how the hawaainins process them to milk", category: "explore")
 
-file4 = URI.open("https://res.cloudinary.com/dqdghubdw/image/upload/v1686835571/development/vdskk7k1d3ynn0e9f0d8mdbxt24g.avif")
+file4 = URI.open("https://images.unsplash.com/photo-1573790387438-4da905039392?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2825&q=80")
 trip4 = Trip.new(name: "Costa Rica Chica", location: "Puerto Viejo", budget: "520", user: user1)
 trip4.photo.attach(io: file4, filename: "nes.png", content_type: "image/png")
 trip4.save
