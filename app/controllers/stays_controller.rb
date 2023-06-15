@@ -13,6 +13,7 @@ class StaysController < ApplicationController
     @stay.trip = @trip
     @stay.cost = params[:price].to_i * @trip.number_of_days.to_i
     @stay.address = params[:location] # Assign the location parameter to the stay
+    @stay.image = params[:image]
     @trip.cost = @trip.cost + @stay.cost
     @trip.save
     authorize @stay
@@ -58,11 +59,9 @@ class StaysController < ApplicationController
 
   end
 
-
-
   private
 
   def stay_params
-    params.require(:stay).permit(:name, :type, :cost, :address, :trip_id, :photo)
+    params.require(:stay).permit(:name, :type, :cost, :address, :trip_id, :photo, :image)
   end
 end
