@@ -1,4 +1,4 @@
-<div class="navbar white-bg trip-budget-nav" id="navbar">
+<div class="navbar white-bg trip-budget-nav fixed-bottom" id="navbar">
   <div class="container">
     <h6 class="text-center"><i class="fa-solid fa-calendar-day"></i> <%= @trip.number_of_days %>
         <% if @trip.number_of_days > 1 %>
@@ -14,4 +14,3 @@
     <h6 class="text-center"><i class="fa-sharp fa-solid fa-location-dot"></i> <%= @trip.location %></h6>
   </div>
 </div>
-

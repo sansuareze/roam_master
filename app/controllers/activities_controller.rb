@@ -16,6 +16,7 @@ class ActivitiesController < ApplicationController
     @activity.name = params[:name]
     @activity.description = params[:description]
     @activity.cost = params[:cost].to_i
+    @activity.image = params[:image]
     @trip.cost = @trip.cost + @activity.cost
     @trip.save
     authorize @activity
@@ -57,6 +58,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.permit(:name, :cost, :description, :trip_id)
+    params.permit(:name, :cost, :description, :trip_id, :image)
   end
 end

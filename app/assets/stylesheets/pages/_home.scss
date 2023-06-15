@@ -38,3 +38,13 @@ body {
     display: flex;
     flex-wrap: wrap;
   }
+
+  .recommendation-card {
+    background: #e5eaed;
+    border: 1px solid #cccecf;
+    border-radius: 7px;
+    box-shadow: 1px 1px 5px #979797;
+    .description-content {
+      padding:16px
+    }
+  }
