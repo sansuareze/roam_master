@@ -1,3 +1,5 @@
+<%= render "shared/budget_nav", trip: @trip  %>
+<%= render "shared/go-back", trip: @activities %>
 <% content_for :head do %>
   <%= csrf_meta_tags %>
 <% end %>
@@ -21,3 +23,17 @@
   </div>
       <div class="activity-list row mb-5" data-search-api-target="activityList"></div>
 </div>
+<script>
+  window.onscroll = function() {myFunction()};
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+</script>

@@ -1,53 +1,81 @@
-<p>budget <%= @trip.budget %></p>
-<p>cost <%= @trip.cost %></p>
-<p>remaining budget <%= @trip.budget - @trip.cost  %></p>
+<%= render "shared/budget_nav", trip: @trip %>
+<%= render "shared/add-activity", trip: @trip %>
+
 <div class="container">
   <div class="row mt-5">
-        <div class="col-5">
-          <% @trip.stays.each do |stay| %>
-            <div class="hotel-card bg-white mt-5">
-              <div class="hotel-picture"></div>
-              <div class="hotel-info p-4">
-                  <div class="hotel-title">
-                  <h4 class="mt-2"><b><%= stay.name.capitalize %></b></h4>
-                  </div>
-                  <div class="hotel-address">
-                    <p><%= stay.address %></p>
-                  </div>
-                  <div class="hotel-delete text-end">
-                    <%= link_to "Remove", stay_path(stay), class: "btn btn-sm btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-                  </div>
+        <div class="col-4">
+          <% if @trip.stays.present?  %>
+              <% @trip.stays.each do |stay| %>
+              <div class="hotel-card bg-white mt-5">
+                <div class="hotel-picture"></div>
+                <div class="hotel-info p-4">
+                    <div class="hotel-title">
+                    <h4 class="mt-2"><b><%= stay.name.capitalize %></b></h4>
+                    </div>
+                    <div class="hotel-address">
+                      <p><%= stay.address %></p>
+                    </div>
+                    <div class="hotel-delete text-end">
+                      <%= link_to "Remove", stay_path(stay), class: "btn btn-sm btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    </div>
+                </div>
               </div>
-            </div>
+             <% end %>
+          <% else %>
+            <center><a class="btn btn-primary btn-lg add-stay" onclick="window.location.href='/trips/<%= @trip.id %>/stays'"><i class="fa-solid fa-calendar-plus"></i> <br>Add an stay to your Trip</a></center>
           <% end %>
+
+
         </div>
 
     <div class="col-6 offset-1">
-    <h1 class="mt-5 mb-3">Trip <b><%= @trip.name %></b> <%= link_to "edit trip", edit_trip_path(@trip), class: "btn btn-sm btn-success" %> <a class="btn btn-secondary btn-sm" onclick="window.location.href='/trips/<%= @trip.id %>/stays'">Look for more stays</a></h1>
-      <h2>Key info about your trip</h2>
-        <p style="font-size:1.2em"><b><%= @trip.name %></b> starts from <b><%= @trip.start_date %></b> to <b><%= @trip.end_date %></b> at <b><%= @trip.location %></b>, with a
-        <b>€ <%= @trip.budget %></b> budget.</p>
-        <h4>Total number of days: <b><%= @trip.number_of_days %></b></h4>
-        <%= link_to "Add new activity", trip_activities_path(@trip), class: "btn btn-primary" %>
-
-        <a href="#myactivities" class="btn btn-info"> See my activities</a>
+    <h1 class="mt-5 mb-3">Trip <b><%= @trip.name %></b>
+      <%= link_to(edit_trip_path(@trip), class: "btn btn-sm btn-dark") do %>
+          <i class="far fa-pen-to-square"></i> edit trip
+      <% end %>
+    </h1>
+      <h3>Key info about your trip</h3>
+      <div class="bd-callout bd-callout-info">
+          <p style="font-size:1.2em"><b><%= @trip.name %></b> starts from <b><%= @trip.start_date.strftime("%m-%d-%Y") %></b> to <b><%= @trip.end_date.strftime("%m-%d-%Y") %></b> at <b><%= @trip.location %></b>, with a
+          <b>€ <%= @trip.budget %></b> budget during <b><%= @trip.number_of_days %></b> days.</p>
+          <% if @trip.activities.present?  %>
+            <a href="#myactivities" class="btn btn-info"> See my activities</a>
+          <% end %>
+      </div>
     </div>
 
-    <div class="col-md-12" id="myactivities">
+    <div class="col-md-12 mt-5">
 
-      <h2 class="mt-5">My Activities</h2>
+
+        <% if @trip.activities.present?  %>
+          <div class="bd-callout bd-callout-info" >
+            <h5>You have
+            <b><%= @trip.activities.count %></b>
+              <% if @trip.activities.count == 1%>
+                activity on this trip</h5>
+              <% else %>
+                activities on this trip</h5>
+              <% end %>
+          </div>
+        <% end %>
+
+<span  id="myactivities"></span>
 
       <% @trip.activities.each do |activity| %>
         <div class="col-12 p-2">
         </div>
-        <div class="row p-5 bg-white m-2">
+        <div class="row p-3 bg-white m-2">
         <h4><i class="fa-sharp fa-solid fa-person-hiking"></i><%= activity.name %></h4>
           <div class="col-5">
-            <img class="img-fluid" src="https://media.tacdn.com/media/attractions-splice-spp-674x446/06/6f/7a/e0.jpg" />
+            <img class="img-fluid" src="<%= activity.image %>"/>
+
           </div>
           <div class="col-7">
             <p><%= activity.description %></p>
-            <%= link_to "Remove", activity_path(activity), class: "btn btn-sm btn-danger", style: "float:right", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+           <%= link_to activity_path(activity), class: "btn btn-danger detele-btn", style: "float:right", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
+
           </div>
         </div>
 
@@ -55,3 +83,17 @@
     </div>
   </div>
 </div>
+<script>
+  window.onscroll = function() {myFunction()};
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+</script>

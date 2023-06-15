@@ -1,3 +1,5 @@
+<%= render "shared/budget_nav" %>
+<%= render "shared/go-back", trip: @stays %>
 <div class="container" data-controller="stays-form" data-trip-id="<%= @trip.id %>">
   <h3 class="text-center my-3">Type your destination to get a list of hotel options</h3>
   <div class="row justify-content-center">
@@ -18,3 +20,17 @@
     </div>
   </div>
 </div>
+<script>
+  window.onscroll = function() {myFunction()};
+
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+</script>

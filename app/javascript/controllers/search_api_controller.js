@@ -151,6 +151,7 @@ export default class extends Controller {
     const activityName = event.currentTarget.getAttribute("data-activity-name");
     const activityPrice = event.currentTarget.getAttribute('data-activity-cost');
     const activityDescription = event.currentTarget.getAttribute('data-activity-description');
+    const activityImage = event.currentTarget.getAttribute('data-activity-img');
     const tripId = this.tripId;
     this.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content'); // Fetch the CSRF token from the meta tag
 
@@ -158,7 +159,8 @@ export default class extends Controller {
       name: activityName,
       cost: activityPrice,
       description: activityDescription,
-      trip_id: tripId
+      trip_id: tripId,
+      image: activityImage
     };
 
     fetch(`/trips/${tripId}/activities`, { // Change the URL to match your activities controller route

@@ -2,7 +2,6 @@
   justify-content: space-between;
   background: white;
   padding-bottom: 25px;
-  border: 1px solid black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -42,7 +41,7 @@
 	&:nth-child(2) {
 		stroke-dasharray: 650px;
 		stroke-dashoffset: 650px;
-		stroke: darken(#ffa206, 10%);
+		stroke: darken(#ffaa18, 10%);
 		stroke-width: 5;
 		transition: stroke-dashoffset 800ms ease-out;
 	}
