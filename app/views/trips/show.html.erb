@@ -7,13 +7,14 @@
           <% if @trip.stays.present?  %>
               <% @trip.stays.each do |stay| %>
               <div class="hotel-card bg-white mt-5">
-                <div class="hotel-picture"></div>
+                <div class="hotel-picture" style="background-image: url('https://loremflickr.com/800/600/building');"></div>
                 <div class="hotel-info p-4">
                     <div class="hotel-title">
                     <h4 class="mt-2"><b><%= stay.name.capitalize %></b></h4>
                     </div>
                     <div class="hotel-address">
-                      <p><%= stay.address %></p>
+                      <p><i class="fa-sharp fa-solid fa-location-dot"></i> <%= stay.address %></p>
+                      <h4>€ <%= stay.cost %></h4>
                     </div>
                     <div class="hotel-delete text-end">
                       <%= link_to "Remove", stay_path(stay), class: "btn btn-sm btn-danger", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
@@ -65,7 +66,7 @@
         <div class="col-12 p-2">
         </div>
         <div class="row p-3 bg-white m-2">
-        <h4><i class="fa-sharp fa-solid fa-person-hiking"></i><%= activity.name %></h4>
+        <h4><i class="fa-sharp fa-solid fa-person-hiking"></i> <%= activity.name %></h4>
           <div class="col-5">
             <img class="img-fluid" src="<%= activity.image %>"/>
 

@@ -46,8 +46,8 @@ export default class extends Controller {
     const url = 'https://test.api.amadeus.com/v1/security/oauth2/token';
     const data = {
       grant_type: "client_credentials",
-      client_id: 'oj2NV49C0djaUwfDmLJWUOkf21KbqdoN',
-      client_secret: 'w8GP0jc4nxKLQV0G',
+      client_id: '9ulXYrcAbq4ApwJ2kO3rab85s05Sk5OL',
+      client_secret: 'GyG2eGE7X6BEmUIO',
     }
 
     const body = new URLSearchParams();
