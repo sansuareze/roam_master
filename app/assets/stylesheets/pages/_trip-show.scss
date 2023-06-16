@@ -39,7 +39,7 @@
 .add-stay:hover {
   text-align: center;
   color: white;
-  padding-top: 16%;
+  padding-top: 21%;
   background: #aaaaaa !important;
   border-radius: 50%;
   height: 300px;
@@ -90,4 +90,11 @@
   position: fixed;
   height: 70px;
   box-shadow: 1px 1px 7px #333;
+}
+
+.key-info {
+  padding: 3%;
+  background: #ffffff;
+  border-radius: 7px;
+  box-shadow: 0px 0px 7px #d5d5d5;
 }
