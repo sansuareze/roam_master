@@ -47,3 +47,4 @@ trip4.save
 
 stay4 = Stay.create(trip: trip4, category: "Hotel", name: "Hotel Pura Vida", address: "Calle de General, 4550178,Limon, Costa Rica", cost: "500$")
 activity4 = Activity.create(trip: trip4, name: "Samnba Classes", cost: "250$", description: "Hips dont lie, prove yourself how good you really are at dancing", category: "fun")
+
