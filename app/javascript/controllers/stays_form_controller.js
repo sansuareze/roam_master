@@ -137,10 +137,22 @@ export default class extends Controller {
           card.classList.add("col-4");
 
 
+          const images = [
+            "https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg",
+            "https://images.unsplash.com/photo-1590447158019-883d8d5f8bc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2832&q=80",
+            "https://images.unsplash.com/photo-1574060603747-421196bce3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
+            "https://images.unsplash.com/photo-1588351829783-6edb9bd6af6a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzh8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "https://images.unsplash.com/photo-1576921624107-b8d82c7dba44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTExfHxob3RlbHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+            "https://images.unsplash.com/photo-1671683886944-6478e6c84cbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGV1cm9wZSUyMGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+            "https://images.unsplash.com/photo-1526996970093-36148727de98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGV1cm9wZSUyMGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+            "https://images.unsplash.com/photo-1551485327-216cdc03b582?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGV1cm9wZSUyMGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+            "https://images.unsplash.com/photo-1556459537-3f2228eb9490?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGV1cm9wZSUyMGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+            "https://images.unsplash.com/photo-1618458550360-9d751bb189d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzN8fGV1cm9wZSUyMGhvdGVsfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+         ];
 
+          const randomImage = images[Math.floor(Math.random() * images.length)];
           const hotelCardBg = document.createElement("div");
-          hotelCardBg.style.background = "url(https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg)";
-          hotelCardBg.style.width = "100%";
+          hotelCardBg.style.background = `url(${randomImage}) no-repeat center center / cover`;
           hotelCardBg.classList.add("bg-image");
           hotelCardBg.alt = hotel.name;
           card.appendChild(hotelCardBg);
