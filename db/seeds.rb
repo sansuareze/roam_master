@@ -15,14 +15,13 @@ puts "creating admin user"
 user1 = User.create(email: "admin@gmail.com", password: "123456")
 puts "creating trips"
 
+stay1 = Stay.create(trip: trip1, category: "Hotel", name: "The Ritz-Carlton", address: "Jl. Raya Nusa Dua Selatan Jl. Nusa Dua, Lot III, Sawangan, Kec. Kuta Sel., Bali, 80361, Indonesien", cost: "1234$")
+activity1 = Activity.create(trip: trip1, name: "surfing and drinks", cost: "250$", description: "Take your first surfing lessons with advanced teachersand enjoy a nice drink afterwards", category: "sport and drinks")
+
 file1 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686226359/bali1_b5xwxh.webp")
 trip1 = Trip.new(name: "Weekend in Bali", location: "Bali", budget: "1000", user: user1)
 trip1.photo.attach(io: file1, filename: "nes.png", content_type: "image/png")
 trip1.save
-
-stay1 = Stay.create(trip: trip1, category: "Hotel", name: "The Ritz-Carlton", address: "Jl. Raya Nusa Dua Selatan Jl. Nusa Dua, Lot III, Sawangan, Kec. Kuta Sel., Bali, 80361, Indonesien", cost: "1234$")
-activity1 = Activity.create(trip: trip1, name: "surfing and drinks", cost: "250$", description: "Take your first surfing lessons with advanced teachersand enjoy a nice drink afterwards", category: "sport and drinks")
-
 
 file2 = URI.open("https://res.cloudinary.com/dtkrtgnr5/image/upload/v1686226472/ibiza1_imcreo.webp")
 trip2 = Trip.new(name: "One Night in Ibiza", location: "Ibiza", budget: "5000", user: user1)
@@ -47,4 +46,3 @@ trip4.save
 
 stay4 = Stay.create(trip: trip4, category: "Hotel", name: "Hotel Pura Vida", address: "Calle de General, 4550178,Limon, Costa Rica", cost: "500$")
 activity4 = Activity.create(trip: trip4, name: "Samnba Classes", cost: "250$", description: "Hips dont lie, prove yourself how good you really are at dancing", category: "fun")
-
