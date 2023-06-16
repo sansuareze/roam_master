@@ -1,7 +1,7 @@
 <%= render "shared/budget_nav", trip: @trip %>
 <%= render "shared/add-activity", trip: @trip %>
 
-<div class="container">
+<div class="container" style="min-height:61vh">
   <div class="row mt-5">
         <div class="col-4">
           <% if @trip.stays.present?  %>
@@ -23,25 +23,27 @@
               </div>
              <% end %>
           <% else %>
-            <center><a class="btn btn-primary btn-lg add-stay" onclick="window.location.href='/trips/<%= @trip.id %>/stays'"><i class="fa-solid fa-calendar-plus"></i> <br>Add a stay to your Trip</a></center>
+            <center><a class="btn btn-primary btn-lg add-stay" style="display: flex;flex-direction: column; align-items: center;" onclick="window.location.href='/trips/<%= @trip.id %>/stays'"><i class="fa-solid fa-calendar-plus"></i> <br>Add a stay to your Trip</a></center>
           <% end %>
 
 
         </div>
 
     <div class="col-6 offset-1">
-    <h1 class="mt-5 mb-3">Trip <b><%= @trip.name %></b>
-      <%= link_to(edit_trip_path(@trip), class: "btn btn-sm btn-dark") do %>
-          <i class="far fa-pen-to-square"></i> edit trip
-      <% end %>
-    </h1>
-      <h3>Key info about your trip</h3>
-      <div class="bd-callout bd-callout-info">
-          <p style="font-size:1.2em"><b><%= @trip.name %></b> starts from <b><%= @trip.start_date.strftime("%m-%d-%Y") %></b> to <b><%= @trip.end_date.strftime("%m-%d-%Y") %></b> at <b><%= @trip.location %></b>, with a
-          <b>€ <%= @trip.budget %></b> budget during <b><%= @trip.number_of_days %></b> days.</p>
-          <% if @trip.activities.present?  %>
-            <a href="#myactivities" class="btn btn-info"> See my activities</a>
+      <div class="key-info">
+            <h1 class="mt-5 mb-3">Trip <b><%= @trip.name %></b>
+          <%= link_to(edit_trip_path(@trip), class: "btn btn-sm btn-dark") do %>
+              <i class="far fa-pen-to-square"></i> edit trip
           <% end %>
+        </h1>
+          <h3>Key info about your trip</h3>
+          <div class="bd-callout bd-callout-info">
+              <p style="font-size:1.2em"><b><%= @trip.name %></b> starts from <b><%= @trip.start_date.strftime("%m-%d-%Y") %></b> to <b><%= @trip.end_date.strftime("%m-%d-%Y") %></b> at <b><%= @trip.location %></b>, with a
+              <b>€ <%= @trip.budget %></b> budget during <b><%= @trip.number_of_days %></b> days.</p>
+              <% if @trip.activities.present?  %>
+                <a href="#myactivities" class="btn btn-info"> See my activities</a>
+              <% end %>
+          </div>
       </div>
     </div>
 
